@@ -1,0 +1,13 @@
+.wrapper {
+    background-color: antiquewhite;
+}
+
+.video-list-item {
+    border: 2px solid rgb(228, 172, 108);
+    background-color: rgb(240, 238, 235);
+    cursor: pointer;
+}
+
+.highlighted {
+    background-color: aqua;
+}

@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-2">
+        <app-video-list (onVideoSelect)="selectCurrentVideo($event)"></app-video-list>
+    </div>
+    <div class="col-8">
+        <app-video-player [video]="currentVideo"></app-video-player>
+    </div>
+    <div class="col-2">
+        <app-stat-filters></app-stat-filters>
+    </div>
+</div>

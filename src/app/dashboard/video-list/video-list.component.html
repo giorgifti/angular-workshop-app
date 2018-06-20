@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <div 
+        class="card video-list-item"
+        *ngFor="let video of videoList"
+        (click)="selectVideo(video)"
+        [class.highlighted]="selectedVideo === video">
+        
+        <app-video-thumbnail [video]="video"></app-video-thumbnail>
+    
+    </div>
+</div>
