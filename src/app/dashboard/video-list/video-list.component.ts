@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Video } from './video';
 import { VideoService } from './video.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-video-list',
@@ -10,15 +11,13 @@ import { VideoService } from './video.service';
 export class VideoListComponent implements OnInit {
   @Output() onVideoSelect: EventEmitter<Video> = new EventEmitter<Video>();
   
-  videoList: Video[];
+  videoList: Observable<Video[]>;
   selectedVideo: Video;
   
   constructor(private videoService: VideoService) { }
 
   ngOnInit() {
-      this.videoService.getVideoList().subscribe(data => {
-        this.videoList = data;
-      });
+      this.videoList = this.videoService.getVideoList();
   }
 
   selectVideo = (video: Video) => {
