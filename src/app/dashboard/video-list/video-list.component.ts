@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Video } from './video';
 import { VideoService } from './video.service';
 import { Observable } from 'rxjs';
@@ -10,15 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class VideoListComponent implements OnInit {
   @Output() onVideoSelect: EventEmitter<Video> = new EventEmitter<Video>();
-  
-  videoList: Observable<Video[]>;
+  @Input() videoList: Video[];
   selectedVideo: Video;
   
-  constructor(private videoService: VideoService) { }
+  constructor() { }
 
-  ngOnInit() {
-      this.videoList = this.videoService.getVideoList();
-  }
+  ngOnInit() {}
 
   selectVideo = (video: Video) => {
     this.selectedVideo = video;

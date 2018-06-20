@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div 
         class="card video-list-item"
-        *ngFor="let video of (videoList | async)"
+        *ngFor="let video of videoList"
         (click)="selectVideo(video)"
         [class.highlighted]="selectedVideo === video">
         

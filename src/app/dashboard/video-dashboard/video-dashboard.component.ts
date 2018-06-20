@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Video } from '../video-list/video';
+import { VideoService } from '../video-list/video.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-video-dashboard',
@@ -8,10 +10,13 @@ import { Video } from '../video-list/video';
 })
 export class VideoDashboardComponent implements OnInit {
   currentVideo: Video;
+  videoList: Observable<Video[]>;
 
-  constructor() { }
+  constructor(private videoService: VideoService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.videoList = this.videoService.getVideoList();
+  }
 
   selectCurrentVideo = (video: Video) => {
     this.currentVideo = video;
